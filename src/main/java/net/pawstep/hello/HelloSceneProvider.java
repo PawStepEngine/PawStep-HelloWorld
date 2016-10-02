@@ -1,5 +1,7 @@
 package net.pawstep.hello;
 
+import org.lwjgl.util.vector.Vector3f;
+
 import net.pawstep.engine.PawStepEngine;
 import net.pawstep.engine.SceneProvider;
 import net.pawstep.engine.hierarchy.Entity;
@@ -14,8 +16,13 @@ public class HelloSceneProvider implements SceneProvider {
 		
 		PawStepEngine.getLogger().info("Populating initial scene...");
 		
-		Entity ent = scene.newEntity("View");
-		Camera cam = ent.addComponent(Camera.class);
+		Entity camEnt = scene.newEntity("View");
+		camEnt.getTransform().position = new Vector3f(0, 0, 0);
+		Camera cam = camEnt.addComponent(Camera.class);
+		
+		Entity cube = scene.newEntity("Cube");
+		cube.addComponent(SineMoveComponent.class);
+		cube.addComponent(CubeWireframeRenderer.class);
 		
 		PawStepEngine.getLogger().info("Done!");
 		
