@@ -6,8 +6,8 @@ import net.pawstep.engine.PawStepEngine;
 import net.pawstep.engine.components.ComponentType;
 import net.pawstep.engine.render.Renderer;
 
-@ComponentType(name = "hello:cube_wireframe")
-public class CubeWireframeRenderer extends Renderer {
+@ComponentType(name = "hello:cube_wireframe_rgb")
+public class RgbWireframeCubeRenderer extends Renderer {
 
 	@Override
 	public void draw() {
@@ -54,7 +54,7 @@ public class CubeWireframeRenderer extends Renderer {
 		GL11.glVertex3f(-1, -1, 1);
 		GL11.glVertex3f(1, -1, 1);
 		
-		GL11.glColor3f(1, 1, 1);
+		GL11.glColor3f(1, 0, 0);
 		GL11.glVertex3f(-1, -1, 1);
 		GL11.glVertex3f(1, -1, 1);
 		
@@ -71,7 +71,7 @@ public class CubeWireframeRenderer extends Renderer {
 	}
 	
 	static {
-		PawStepEngine.registerComponentType(CubeWireframeRenderer.class);
+		PawStepEngine.registerComponentType(RgbWireframeCubeRenderer.class);
 	}
 	
 }

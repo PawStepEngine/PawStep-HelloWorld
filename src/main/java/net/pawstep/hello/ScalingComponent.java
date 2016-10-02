@@ -1,13 +1,14 @@
 package net.pawstep.hello;
 
-import net.pawstep.engine.EulerHelper;
+import org.lwjgl.util.vector.Vector3f;
+
 import net.pawstep.engine.PawStepEngine;
 import net.pawstep.engine.components.ComponentType;
 import net.pawstep.engine.hierarchy.Component;
 
-@ComponentType(name = "hello:sine_move")
-public class SineMoveComponent extends Component {
-	
+@ComponentType(name = "hello:scaler")
+public class ScalingComponent extends Component {
+
 	@Override
 	public void update() {
 		
@@ -17,13 +18,13 @@ public class SineMoveComponent extends Component {
 		float sin = (float) Math.sin(d);
 		float cos = (float) Math.cos(d);
 		
-		//this.getTransform().position = new Vector3f(3F * sin, 0, 3F * cos - 4);
-		this.getTransform().rotation = EulerHelper.eulerToQuat(sin, 0, 0);
+		this.getTransform().scaling = new Vector3f(sin + 1.5F, cos + 1.5F, 0.5F);
+		this.getTransform().position = new Vector3f(0, 1, 0);
 		
 	}
 	
 	static {
-		PawStepEngine.registerComponentType(SineMoveComponent.class);
+		PawStepEngine.registerComponentType(ScalingComponent.class);
 	}
 	
 }
