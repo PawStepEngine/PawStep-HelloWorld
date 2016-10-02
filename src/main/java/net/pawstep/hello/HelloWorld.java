@@ -6,8 +6,9 @@ public class HelloWorld {
 	
 	public static void main(String[] args) {
 		
-		PawStepEngine.init(new HelloEC());
-		PawStepEngine.getEngine();
+		PawStepEngine e = PawStepEngine.init(new HelloEC());
+		
+		e.getLoopManager().startLoop();
 		
 	}
 	
